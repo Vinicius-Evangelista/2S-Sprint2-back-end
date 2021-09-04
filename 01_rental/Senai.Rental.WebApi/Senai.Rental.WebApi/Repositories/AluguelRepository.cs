@@ -35,13 +35,23 @@ namespace Senai.Rental.WebApi.Repositories
             {
                 sqlConnection.Open();
 
-                string querySelectWhere = "SELECT * FROM ALUGUEL WHERE idAluguel = @idAluguel ;";
+                string querySelectWhere = @"
+SELECT idAluguel, r.idCarro, c.idCliente, r.placaCarro, nomeModelo, c.nomeCliente, dataAluguel
+FROM ALUGUEL
+JOIN CLIENTE c
+ON ALUGUEL.idCliente = c.idCliente
+JOIN CARRO r
+ON ALUGUEL.idCarro = r.idCarro
+JOIN MODELO
+ON MODELO.idModelo = r.idModelo
+WHERE idAluguel = @idAluguel
+";
 
                 SqlDataReader reader;
 
                 using (SqlCommand sqlCommand = new SqlCommand(querySelectWhere, sqlConnection))
                 {
-                    sqlCommand.Parameters.AddWithValue("@idAluguel", id);
+                   sqlCommand.Parameters.AddWithValue("@idAluguel", id);
                    reader = sqlCommand.ExecuteReader();
 
                     if (reader.Read())
@@ -51,7 +61,19 @@ namespace Senai.Rental.WebApi.Repositories
                             idAluguel = Convert.ToInt32(reader[0]),
                             idCarro = Convert.ToInt32(reader[1]),
                             idCliente = Convert.ToInt32(reader[2]),
-                            dataAluguel = Convert.ToDateTime(reader[3])
+                            dataAluguel = Convert.ToDateTime(reader[6]),
+                            carro = new CarroDomain()
+                            {
+                                placaCarro = reader[3].ToString(),
+                                modelo = new ModeloDomain()
+                                {
+                                    nomeModelo = reader[4].ToString(),
+                                }
+                            },
+                            cliente = new ClienteDomain()
+                            {
+                                nomeCliente = reader[5].ToString(),
+                            }
                         };
 
                         return aluguel;
@@ -87,7 +109,7 @@ namespace Senai.Rental.WebApi.Repositories
 
         public void Deletar(int id)
         {
-            using (SqlConnection sqlConnection = new SqlConnection())
+            using (SqlConnection sqlConnection = new SqlConnection(STRINGCONEXAO))
             {
                 string queryDelete = "DELETE FROM ALUGUEL WHERE idAluguel = @idAluguel;";
 

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xr0hx09wA5mc3BJ5yqkEbDUcmmPWdCLZCwiQsS3Rt+1RqU9m2zhkZSdnn+j+NDctHd+Scw6olxeoFMwkZtltTQ==",
+  "dgSpecHash": "vro53Q4WRrx7DjmZy9mzI72aVSZkeT8Q3e56De9F6wj+wcyq8Zb4+iU+eobIFn9YXNWcWETaRmlTqPlHV3Q8RQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Vinicius\\Desktop\\exercícios-back-end\\01_rental\\Senai.Rental.WebApi\\Senai.Rental.WebApi\\Senai.Rental.WebApi.csproj",
+  "projectFilePath": "C:\\Users\\Vinicius\\Desktop\\01_rental\\Senai.Rental.WebApi\\Senai.Rental.WebApi\\Senai.Rental.WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Vinicius\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Vinicius\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

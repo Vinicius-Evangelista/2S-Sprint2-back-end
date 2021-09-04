@@ -13,6 +13,6 @@ namespace Senai.Rental.WebApi.Domains
 
         public string sobreNomeCliente { get; set; }
 
-        public int cnh { get; set; } 
+        public string cnh { get; set; } 
     }
 }

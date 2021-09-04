@@ -459,11 +459,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Vinicius\\Desktop\\exercícios-back-end\\01_rental\\Senai.Rental.WebApi\\Senai.Rental.WebApi\\Senai.Rental.WebApi.csproj",
+      "projectUniqueName": "C:\\Users\\Vinicius\\Desktop\\01_rental\\Senai.Rental.WebApi\\Senai.Rental.WebApi\\Senai.Rental.WebApi.csproj",
       "projectName": "Senai.Rental.WebApi",
-      "projectPath": "C:\\Users\\Vinicius\\Desktop\\exercícios-back-end\\01_rental\\Senai.Rental.WebApi\\Senai.Rental.WebApi\\Senai.Rental.WebApi.csproj",
+      "projectPath": "C:\\Users\\Vinicius\\Desktop\\01_rental\\Senai.Rental.WebApi\\Senai.Rental.WebApi\\Senai.Rental.WebApi.csproj",
       "packagesPath": "C:\\Users\\Vinicius\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Vinicius\\Desktop\\exercícios-back-end\\01_rental\\Senai.Rental.WebApi\\Senai.Rental.WebApi\\obj\\",
+      "outputPath": "C:\\Users\\Vinicius\\Desktop\\01_rental\\Senai.Rental.WebApi\\Senai.Rental.WebApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Vinicius\\AppData\\Roaming\\NuGet\\NuGet.Config",

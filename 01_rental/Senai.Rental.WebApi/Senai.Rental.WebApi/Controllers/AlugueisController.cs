@@ -42,5 +42,91 @@ namespace Senai.Rental.WebApi.Controllers
 
             return Ok(listaAluguel);
         }
+
+        //POST
+        [HttpPost]
+        public IActionResult Create(AluguelDomain novoAluguel)
+        {
+            //adiciona um novo aluguel
+            _alugueisRepository.Cadastrar(novoAluguel);
+
+            return StatusCode(201);
+        }
+
+        //GET
+        [HttpGet("{id}")]
+
+        public IActionResult ReadEspc (int id)
+        {
+            AluguelDomain aluguel = _alugueisRepository.BuscarPorId(id);
+
+            return Ok(aluguel);
+
+        }
+
+
+        //PUT
+        [HttpPut("{id}")]
+        public IActionResult Put (int id, AluguelDomain aluguel)
+        {
+            AluguelDomain aluguelId = _alugueisRepository.BuscarPorId(id);
+
+            if (aluguelId == null)
+            {
+                return NotFound(
+                    new
+                    {
+                        mensagem = "Aluguel não encontrado !",
+                    erro = true
+                    }
+
+                    );
+            }
+
+            try
+            {
+                _alugueisRepository.AtualizarPorId(id, aluguel);
+
+                return StatusCode(200);
+            }
+            catch (Exception error)
+            {
+
+                return BadRequest(error);
+            }
+        }
+
+        //DELETE
+        [HttpDelete("{id}")]
+        public IActionResult Delete (int id)
+        {
+            AluguelDomain aluguelId = _alugueisRepository.BuscarPorId(id);
+
+            //fazendo verificação antes de executar o algoritimo
+            if (aluguelId == null)
+            {
+                //return personalizando com mensagem de erro
+                return NotFound(
+                    new
+                    {
+                        mensagem = "O registro de aluguel não foi encontrado",
+                        erro = true //Porque isso daqui está true ?
+                    }
+
+                    );
+            }
+
+            try
+            {
+                _alugueisRepository.Deletar(id);
+
+                return StatusCode(200);
+            }
+            catch (Exception error)
+            {
+
+                return BadRequest(error);
+            }
+        }
     }
 }
